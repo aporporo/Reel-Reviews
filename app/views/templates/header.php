@@ -60,8 +60,8 @@
                       <a class="btn btn-warning" type="button" href="/logout">Logout</a>
                     </div>
                   <?php else: ?>
-                    <button type="button" class="btn btn-outline-light me-2">Login</button>
-                    <button type="button" class="btn btn-warning">Sign-up</button>
+                    <a class="btn btn-outline-light me-2" type="button" href="/login">Login</a>
+                    <a class="btn btn-warning" type="button" href="/create">Sign-up</a>
                   <?php endif; ?>
                 </div>
             </div>
