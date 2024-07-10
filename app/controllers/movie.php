@@ -3,23 +3,28 @@
 class Movie extends Controller {
 
   public function index() {
-    $this->view('movie/index');
+    $api = $this->model('Api');
+
+    $movie_title = "the matrix";
+    $movie = $api->getMovie($movie_title);
+    $this->view('movie/index' , ['movie' => $movie]);
   }
 
   public function search() {
-    if (!isset($_REQUEST['movie'])) {
-      //redirect to /movie
-    }
+    // if (!isset($_REQUEST['movie'])) {
+    //   //redirect to /movie
+    //   header('location: /');
+    // }
 
-    $api = this->model('Api');
+    $api = $this->model('Api');
 
-    $movie_title = $_REQUEST['movie'];
+    $movie_title = "the matrix";
     $movie = $api->getMovie($movie_title);
 
-    echo "<pre>";
-    print_r($movie);
+    
 
     $this->view('movie/results', ['movie' => $movie]);
+    header('location: /movie/results');
   }
 
   public function review($rating = '') {

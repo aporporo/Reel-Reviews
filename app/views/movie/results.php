@@ -5,7 +5,10 @@
     <div class="page-header" id="banner">
         <div class="row">
             <div class="col-lg-12">
-                omdb
+                
+                results
+
+                <?php echo $data['movie']['Title'] ?>
 
 
             </div>
