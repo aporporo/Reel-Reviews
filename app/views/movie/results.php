@@ -4,6 +4,7 @@
 <style>
     .list-inline {
       display:block;
+        margin-inline-start:20px
     }
     .list-inline li {
       display:inline-block;
@@ -12,6 +13,14 @@
       content:'|';
       margin:0 10px;
     }
+
+    .page-header {
+        margin-top:20px;
+    }
+    section {
+        margin-top:30px;
+    }
+    
 
     .bi-star {
         transition: fill 0.3s ease;
@@ -22,21 +31,10 @@
 </style>
 <div class="container">
     <div class="page-header" id="banner">
-        <div class="row">
-            <div class="col-lg-12">
-                
-                results
-
-                <?php 
-                echo "<pre>";
-                print_r($data['movie']);  ?>
-
-
-            </div>
-        </div>
-        <div class="row border-bottom">
-            <div class="col-lg-6">
-                <h1><?php echo $data['movie']['Title'] ?></h1>
+        
+        <div class="row border-bottom justify-content-between">
+            <div class="col-6 col-sm-4 col-lg-6">
+                <h1 class="display-4"><?php echo $data['movie']['Title'] ?></h1>
                 <ul class="list-inline">
                     <li class="list-inline-item">
                         
@@ -52,27 +50,27 @@
                     
                 </ul>
             </div>
-            <div class="col-lg-6">
-                <div class="row  justify-content-end">
-                    <div class="col-lg-2 text-center">
+            <div class="col-6 d-flex align-items-center justify-content-end">
+                <div class="row">
+                    <div class="col-6 col-sm-3 col-lg-3 text-center">
                         
                         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/IMDb_Logo_Square.svg/128px-IMDb_Logo_Square.svg.png?20200218171646" width="50" height="50" alt="IMDb Logo"></img>
                         <br>
                         <?php echo $data['movie']['imdbRating']?>/10
                     </div>
-                    <div class="col-lg-2 text-center">
+                    <div class="col-6 col-sm-3 col-lg-3 text-center">
                         
                         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Metacritic.svg/88px-Metacritic.svg.png?20150314054830" width="50" height="50" alt="IMDb Logo"></img>
                         <br>
                         <?php echo $data['movie']['Metascore']?>
                     </div>
-                    <div class="col-lg-2 text-center">
+                    <div class="col-6 col-sm-3 col-lg-3 text-center">
                         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Rotten_Tomatoes_alternative_logo.svg/144px-Rotten_Tomatoes_alternative_logo.svg.png?20180315205910" width="50" height="50" alt="IMDb Logo"></img>
                         
                         <br>
                         <?php echo $data['movie']['Ratings'][1]->Value?>
                     </div>
-                    <div class="col-lg-2 text-center">
+                    <div class="col-6 col-sm-3 col-lg-3 text-center">
                         <a class="d-block text-body-emphasis text-decoration-none" href="#">
                             <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-star" viewBox="0 0 16 16">
                               <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.56.56 0 0 0-.163-.505L1.71 6.745l4.052-.576a.53.53 0 0 0 .393-.288L8 2.223l1.847 3.658a.53.53 0 0 0 .393.288l4.052.575-2.906 2.77a.56.56 0 0 0-.163.506l.694 3.957-3.686-1.894a.5.5 0 0 0-.461 0z"/>
@@ -84,10 +82,99 @@
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-lg-6"></div>
-            
-        </div>
+        
+        <section id="main-content">
+            <div class="row">
+                <div class="col-lg-4 text-center mb-3">
+                    <img src="<?php echo $data['movie']['Poster'] ?>"></img>
+                </div>
+                <div class="col-lg-8 d-flex flex-column justify-content-center">
+                    <div class="d-flex">
+                        <p class="lead">
+                            <?php echo $data['movie']['Plot'] ?>
+                        </p>
+                    </div>
+                    
+                    <div class="d-flex">
+                        <dl class="row">
+                            <dt class="col-sm-3">
+                                Genre
+                            </dt>
+                            <dd class="col-sm-9"><?php echo $data['movie']['Genre'] ?></dd>
+                            <dt class="col-sm-3">
+                                Director
+                            </dt>
+                            <dd class="col-sm-9"><?php echo $data['movie']['Director'] ?></dd>
+                            <dt class="col-sm-3">
+                                Writer
+                            </dt>
+                            <dd class="col-sm-9"><?php echo $data['movie']['Writer'] ?></dd>
+                            <dt class="col-sm-3">
+                                Actors
+                            </dt>
+                            <dd class="col-sm-9"><?php echo $data['movie']['Actors'] ?></dd>
+                            <dt class="col-sm-3">
+                                Language
+                            </dt>
+                            <dd class="col-sm-9"><?php echo $data['movie']['Language'] ?></dd>
+                            <dt class="col-sm-3">
+                                Country
+                            </dt>
+                            <dd class="col-sm-9"><?php echo $data['movie']['Country'] ?></dd>
+                            <dt class="col-sm-3">
+                                Awards
+                            </dt>
+                            <dd class="col-sm-9"><?php echo $data['movie']['Awards'] ?></dd>
+                            <dt class="col-sm-3">
+                                Released
+                            </dt>
+                            <dd class="col-sm-9"><?php echo $data['movie']['Released'] ?></dd>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="review-content">
+            <h1 class="display-6">Reviews</h1>
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+                <div class="col">
+                    <div class="card border-light mb-3" style="max-width: 18rem;">
+                      <div class="card-header">Header</div>
+                      <div class="card-body">
+                        <h5 class="card-title">Light card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                      </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card border-light mb-3" style="max-width: 18rem;">
+                      <div class="card-header">Header</div>
+                      <div class="card-body">
+                        <h5 class="card-title">Light card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                      </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card border-light mb-3" style="max-width: 18rem;">
+                      <div class="card-header">Header</div>
+                      <div class="card-body">
+                        <h5 class="card-title">Light card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                      </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card border-light mb-3" style="max-width: 18rem;">
+                      <div class="card-header">Header</div>
+                      <div class="card-body">
+                        <h5 class="card-title">Light card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </section>
             
     </div>
 
@@ -97,7 +184,7 @@
 
     
 
-    <br>
+    
 
 
 
