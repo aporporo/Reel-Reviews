@@ -200,40 +200,40 @@
         </section>
         <section id="review-content">
             <h1 class="display-6">Reviews</h1>
-            <div class="row row-cols-1 row-cols-md-3 g-4">
+            <div class="row row-cols-1 row-cols-md-2 g-4">
                 <div class="col">
-                    <div class="card border-light mb-3" style="max-width: 18rem;">
+                    <div class="card border-light mb-3" style="max-width: 30rem;">
                       <div class="card-header">Header</div>
                       <div class="card-body">
                         <h5 class="card-title">Light card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <p class="card-text"><?php echo $data['review'] ?></p>
                       </div>
                     </div>
                 </div>
                 <div class="col">
-                    <div class="card border-light mb-3" style="max-width: 18rem;">
+                    <div class="card border-light mb-3" style="max-width: 30rem;">
                       <div class="card-header">Header</div>
                       <div class="card-body">
                         <h5 class="card-title">Light card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                          <p class="card-text"><?php echo $data['review2'] ?></p>
                       </div>
                     </div>
                 </div>
                 <div class="col">
-                    <div class="card border-light mb-3" style="max-width: 18rem;">
+                    <div class="card border-light mb-3" style="max-width: 30rem;">
                       <div class="card-header">Header</div>
                       <div class="card-body">
                         <h5 class="card-title">Light card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                          <p class="card-text"><?php echo $data['review3'] ?></p>
                       </div>
                     </div>
                 </div>
                 <div class="col">
-                    <div class="card border-light mb-3" style="max-width: 18rem;">
+                    <div class="card border-light mb-3" style="max-width: 30rem;">
                       <div class="card-header">Header</div>
                       <div class="card-body">
                         <h5 class="card-title">Light card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                          <p class="card-text"><?php echo $data['review4'] ?></p>
                       </div>
                     </div>
                 </div>
