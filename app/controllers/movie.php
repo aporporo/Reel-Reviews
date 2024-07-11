@@ -7,7 +7,7 @@ class Movie extends Controller {
 
     $movie_title = "the matrix";
     $movie = $api->getMovie($movie_title);
-    $review = $api->getReview($movie_title);
+    // $review = $api->getReview($movie_title);
     $data = [
       'movie' => $movie,
       'review' => $review

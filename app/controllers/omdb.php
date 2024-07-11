@@ -14,7 +14,7 @@ class Omdb extends Controller {
     $url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=".$_ENV['GEMINI'];
 
     $numbers = [2,4,6,8,10];
-    for ($x = 0; $x <= 5; $x++) {
+    for ($x = 0; $x <= 4; $x++) {
     $data = array(
       "contents" => array(
         array(
@@ -40,13 +40,13 @@ class Omdb extends Controller {
       echo 'Curl error: ' . curl_error($ch);
     }
 
-    // echo "<pre>";
-    // echo $response;
+    echo "<pre>";
+    echo $response;
     $phpObj = json_decode($response,true);
     $review = $phpObj['candidates'][0]['content']['parts'][0]['text'];
     echo "<pre>";
     echo $review;
-    }
+      
     die;
 
   }

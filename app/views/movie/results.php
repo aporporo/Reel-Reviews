@@ -205,8 +205,8 @@
                     <div class="card border-light mb-3" style="max-width: 30rem;">
                       <div class="card-header">Header</div>
                       <div class="card-body">
-                        <h5 class="card-title">Light card title</h5>
-                        <p class="card-text"><?php echo $data['review'] ?></p>
+                        <h5 class="card-title"><?php echo $data['review'][0][0] ?>/5</h5>
+                        <p class="card-text"><?php echo $data['review'][1][0] ?></p>
                       </div>
                     </div>
                 </div>
@@ -214,8 +214,8 @@
                     <div class="card border-light mb-3" style="max-width: 30rem;">
                       <div class="card-header">Header</div>
                       <div class="card-body">
-                        <h5 class="card-title">Light card title</h5>
-                          <p class="card-text"><?php echo $data['review2'] ?></p>
+                        <h5 class="card-title"><?php echo $data['review'][0][1] ?>/5</h5>
+                          <p class="card-text"><?php echo $data['review'][1][1] ?></p>
                       </div>
                     </div>
                 </div>
@@ -223,8 +223,8 @@
                     <div class="card border-light mb-3" style="max-width: 30rem;">
                       <div class="card-header">Header</div>
                       <div class="card-body">
-                        <h5 class="card-title">Light card title</h5>
-                          <p class="card-text"><?php echo $data['review3'] ?></p>
+                        <h5 class="card-title"><?php echo $data['review'][0][2] ?>/5</h5>
+                          <p class="card-text"><?php echo $data['review'][1][2] ?></p>
                       </div>
                     </div>
                 </div>
@@ -232,8 +232,8 @@
                     <div class="card border-light mb-3" style="max-width: 30rem;">
                       <div class="card-header">Header</div>
                       <div class="card-body">
-                        <h5 class="card-title">Light card title</h5>
-                          <p class="card-text"><?php echo $data['review4'] ?></p>
+                        <h5 class="card-title"><?php echo $data['review'][0][3] ?>/5</h5>
+                          <p class="card-text"><?php echo $data['review'][1][3] ?></p>
                       </div>
                     </div>
                 </div>
