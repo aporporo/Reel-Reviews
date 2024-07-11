@@ -92,6 +92,42 @@
     .bi-star:hover {
         fill: #FF8C00;
     }
+
+     .rating {
+        float:left;
+        border:none;
+    }
+    .rating:not(:checked) > input {
+        position:absolute;
+        top:-9999px;
+        clip:rect(0, 0, 0, 0);
+    }
+    .rating:not(:checked) > label {
+        float:right;
+        width:1em;
+        padding:0 .1em;
+        overflow:hidden;
+        white-space:nowrap;
+        cursor:pointer;
+        font-size:200%;
+        line-height:1.2;
+        color:#ddd;
+    }
+    .rating:not(:checked) > label:before {
+        content:'★ ';
+    }
+    .rating > input:checked ~ label {
+        color: #f70;
+    }
+    .rating:not(:checked) > label:hover, .rating:not(:checked) > label:hover ~ label {
+        color: gold;
+    }
+    .rating > input:checked + label:hover, .rating > input:checked + label:hover ~ label, .rating > input:checked ~ label:hover, .rating > input:checked ~ label:hover ~ label, .rating > label:hover ~ input:checked ~ label {
+        color: #ea0;
+    }
+    .rating > label:active {
+        position:relative;
+    }
 </style>
 <div class="container">
     <div class="page-header" id="banner">
@@ -135,18 +171,47 @@
                         <?php echo $data['movie']['Ratings'][1]->Value?>
                     </div>
                     <div class="col-6 col-sm-3 col-lg-3 text-center">
-                        <a class="d-block text-body-emphasis text-decoration-none" href="#">
+                        <a class="d-block text-body-emphasis text-decoration-none" data-bs-toggle="modal" href="#exampleModal">
                             <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-star icon" viewBox="0 0 16 16">
                               <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.56.56 0 0 0-.163-.505L1.71 6.745l4.052-.576a.53.53 0 0 0 .393-.288L8 2.223l1.847 3.658a.53.53 0 0 0 .393.288l4.052.575-2.906 2.77a.56.56 0 0 0-.163.506l.694 3.957-3.686-1.894a.5.5 0 0 0-.461 0z"/>
                             </svg>
                             <br>
                             Rate
                         </a>
+                        
+
                     </div>
                 </div>
             </div>
         </div>
-        
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Rate <?php echo $data['movie']['Title'] ?></h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body justify-content-center">
+                  <fieldset class="rating">
+                      <input type="radio" id="star5" name="rating" value="5" />
+                      <label for="star5">5 stars</label>
+                      <input type="radio" id="star4" name="rating" value="4" />
+                      <label for="star4">4 stars</label>
+                      <input type="radio" id="star3" name="rating" value="3" />
+                      <label for="star3">3 stars</label>
+                      <input type="radio" id="star2" name="rating" value="2" />
+                      <label for="star2">2 stars</label>
+                      <input type="radio" id="star1" name="rating" value="1" />
+                      <label for="star1">1 star</label>
+                  </fieldset>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+              </div>
+            </div>
+          </div>
+        </div>
         <section id="main-content">
             <div class="row">
                 <div class="col-lg-4 text-center mb-3">
