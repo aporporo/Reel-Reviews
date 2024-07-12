@@ -27,17 +27,15 @@ class Api {
         }
       }
 
-      // if ($phpObj->Response === "True") {
-      //   $db = db_connect();
-      //   $statement = $db->prepare("SELECT COUNT(*) FROM movies WHERE movie_title = '$movie_title'");
-      //   $count = $statement->fetchColumn();
-      // }
-
-      // if ($count == 0) {
-      //   $statement = $db->prepare("INSERT INTO movies (movie_title) VALUES ('$movie_title')");
-      // }
-     
       return $movie;
+  }
+
+  public function getMovieIdByTitle($movie_title) {
+    $db = db_connect();
+    $statement = $db->prepare("SELECT * FROM movies WHERE movie_title = '$movie_title'");
+    $statement->execute();
+    $rows = $statement->fetch(PDO::FETCH_ASSOC);
+    return $rows['movie_id'];
   }
 
   public function getReview($movie_title) {
@@ -82,6 +80,34 @@ class Api {
     echo 'Write a '.$review_emotion[$random_ratings[0]].' short witty review for the movie '.$movie_title.' in the style of a letterboxd review. no *, include a few emojis, do not put the movie title at the beginning.';
     echo $review_emotion[$random_ratings[0]];
     return $reviews_ratings_array;
+  }
+
+
+  public function getRating($user_id, $movie_id) {
+    $db = db_connect();
+    $statement = $db->prepare("SELECT * FROM ratings WHERE user_id = '$user_id' AND movie_id = '$movie_id'");
+    $statement->execute();
+    $rows = $statement->fetch(PDO::FETCH_ASSOC);
+    if (!isset($rows['user_id'])) {
+      return false;
+    } else {
+      return $rows;
+    }
+  }
+  
+  public function rating($rating, $user_id, $movie_id) {
+    //Check ratings table if user has already reviewed this movie, if not, insert into ratings table. If they have, update the rating.
+    $db = db_connect();
+    $rows = $this->getRating($user_id, $movie_id);
+    if (!isset($rows['user_id'])) {
+      $statement = $db->prepare("INSERT INTO ratings (user_id, movie_id, rating) VALUES ('$user_id', '$movie_id', '$rating')");
+      $statement->execute();
+      
+    } else {
+      $statement = $db->prepare("UPDATE ratings SET rating = '$rating' WHERE user_id = '$user_id' AND movie_id = '$movie_id'");
+      $statement->execute();
+    }
+    
   }
   
 }

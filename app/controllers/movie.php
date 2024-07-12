@@ -25,14 +25,18 @@ class Movie extends Controller {
     //   //redirect to /movie
     //   header('location: /');
     // }
-
+    $user_id = $_SESSION['userid'];
     $api = $this->model('Api');
 
     $movie_title = $_REQUEST['search'];
     echo $movie_title;
     $movie = $api->getMovie($movie_title);
+    echo print_r($movie);
+    $movie_title = $movie['Title'];
+    $movie_id = $api->getMovieIdByTitle($movie_title);
     // $review = $api->getReview($movie_title);
-     echo print_r($movie);
+    $rating = $api->getRating($user_id, $movie_id);
+    
 
     $data = [
       'movie' => $movie,
@@ -68,8 +72,16 @@ class Movie extends Controller {
     header('location: /movie/results');
   }
 
-  public function review($rating = '') {
-    //if rating blah blah
+  public function rating() {
+    $rating = 4;
+    $user_id = 32;
+    $movie_id = 13;
+    echo $movie_id; 
+    echo $rating; 
+    echo $user_id;
+    $api = $this->model('Api');
+    $api->rating($rating, $user_id, $movie_id);
+    header('location: /movie/results');
   } 
 
   
