@@ -93,41 +93,19 @@
         fill: #FF8C00;
     }
 
-     .rating {
-        float:left;
-        border:none;
+    .modal-body {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
     }
-    .rating:not(:checked) > input {
-        position:absolute;
-        top:-9999px;
-        clip:rect(0, 0, 0, 0);
+
+    .form-check-inline {
+        text-align: center;
     }
-    .rating:not(:checked) > label {
-        float:right;
-        width:1em;
-        padding:0 .1em;
-        overflow:hidden;
-        white-space:nowrap;
-        cursor:pointer;
-        font-size:200%;
-        line-height:1.2;
-        color:#ddd;
-    }
-    .rating:not(:checked) > label:before {
-        content:'★ ';
-    }
-    .rating > input:checked ~ label {
-        color: #f70;
-    }
-    .rating:not(:checked) > label:hover, .rating:not(:checked) > label:hover ~ label {
-        color: gold;
-    }
-    .rating > input:checked + label:hover, .rating > input:checked + label:hover ~ label, .rating > input:checked ~ label:hover, .rating > input:checked ~ label:hover ~ label, .rating > label:hover ~ input:checked ~ label {
-        color: #ea0;
-    }
-    .rating > label:active {
-        position:relative;
-    }
+
+    
+    
+    
 </style>
 <div class="container">
     <div class="page-header" id="banner">
@@ -188,22 +166,31 @@
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Rate <?php echo $data['movie']['Title'] ?></h1>
+                <h1 class="modal-title fs-5" id="exampleModalLabel"><?php echo $data['movie']['Title'] ?> - Your Rating!</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body justify-content-center">
-                  <fieldset class="rating">
-                      <input type="radio" id="star5" name="rating" value="5" />
-                      <label for="star5">5 stars</label>
-                      <input type="radio" id="star4" name="rating" value="4" />
-                      <label for="star4">4 stars</label>
-                      <input type="radio" id="star3" name="rating" value="3" />
-                      <label for="star3">3 stars</label>
-                      <input type="radio" id="star2" name="rating" value="2" />
-                      <label for="star2">2 stars</label>
-                      <input type="radio" id="star1" name="rating" value="1" />
-                      <label for="star1">1 star</label>
-                  </fieldset>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                    <label class="form-check-label" for="inlineRadio1" value="1">1</label>
+                </div>
+                <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                      <label class="form-check-label" for="inlineRadio2" value="2">2</label>
+                </div>
+                <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                      <label class="form-check-label" for="inlineRadio3" value="3">3</label>
+                </div>
+                <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                      <label class="form-check-label" for="inlineRadio4" value="4">4</label>
+                    </div>
+                <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                      <label class="form-check-label" for="inlineRadio5" value="5">5</label>
+                </div>
+
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

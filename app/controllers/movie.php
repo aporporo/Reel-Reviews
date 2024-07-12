@@ -31,17 +31,13 @@ class Movie extends Controller {
     $movie_title = $_REQUEST['search'];
     echo $movie_title;
     $movie = $api->getMovie($movie_title);
-    $review = $api->getReview($movie_title);
-    // $review2 = $api->getReview($movie_title);
-    // $review3 = $api->getReview($movie_title);
-    // $review4 = $api->getReview($movie_title);
+    // $review = $api->getReview($movie_title);
+    
 
     $data = [
       'movie' => $movie,
-      'review' => $review,
-      // 'review2' => $review,
-      // 'review3' => $review,
-      // 'review4' => $review
+      // 'review' => $review,
+     
     ];
 
     
