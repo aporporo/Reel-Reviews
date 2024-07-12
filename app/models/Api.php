@@ -13,6 +13,30 @@ class Api {
       $json = file_get_contents($query_url);
       $phpObj = json_decode($json);
       $movie =  (array) $phpObj;
+      $movie_title = $movie['Title'];
+      if ($movie['Response'] == 'False') {
+        return $movie;
+      } else {
+        $db = db_connect();
+        $statement = $db->prepare("SELECT * FROM movies WHERE movie_title = '$movie_title'");
+        $statement->execute();
+        $rows = $statement->fetch(PDO::FETCH_ASSOC);
+        if (!isset($rows['movie_title'])) {
+          $statement = $db->prepare("INSERT INTO movies (movie_title) VALUES ('$movie_title')");
+          $statement->execute();
+        }
+      }
+
+      // if ($phpObj->Response === "True") {
+      //   $db = db_connect();
+      //   $statement = $db->prepare("SELECT COUNT(*) FROM movies WHERE movie_title = '$movie_title'");
+      //   $count = $statement->fetchColumn();
+      // }
+
+      // if ($count == 0) {
+      //   $statement = $db->prepare("INSERT INTO movies (movie_title) VALUES ('$movie_title')");
+      // }
+     
       return $movie;
   }
 

@@ -32,7 +32,7 @@ class Movie extends Controller {
     echo $movie_title;
     $movie = $api->getMovie($movie_title);
     // $review = $api->getReview($movie_title);
-    
+     echo print_r($movie);
 
     $data = [
       'movie' => $movie,
