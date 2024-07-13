@@ -19,7 +19,7 @@
         align-items: center;
         justify-content: center;
         text-align: center;
-        min-height: 400px; /* Adjust this value as needed */
+        
     }
 
     .col-md-5 {
