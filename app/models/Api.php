@@ -35,7 +35,7 @@ class Api {
     $statement = $db->prepare("SELECT * FROM movies WHERE movie_title = '$movie_title'");
     $statement->execute();
     $rows = $statement->fetch(PDO::FETCH_ASSOC);
-    return $rows['movie_id'];
+    return $rows['id'];
   }
 
   public function getReview($movie_title) {

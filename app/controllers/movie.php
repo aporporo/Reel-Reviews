@@ -31,9 +31,12 @@ class Movie extends Controller {
     $movie_title = $_REQUEST['search'];
     echo $movie_title;
     $movie = $api->getMovie($movie_title);
-    echo print_r($movie);
+    // echo print_r($movie);
+    
     $movie_title = $movie['Title'];
     $movie_id = $api->getMovieIdByTitle($movie_title);
+    $_SESSION['movie_id'] = $movie_id;
+    echo $movie_id;
     // $review = $api->getReview($movie_title);
     $rating = $api->getRating($user_id, $movie_id);
     
@@ -73,9 +76,9 @@ class Movie extends Controller {
   }
 
   public function rating() {
-    $rating = 4;
-    $user_id = 32;
-    $movie_id = 13;
+    $rating = $_REQUEST['rating'];
+    $user_id = $_SESSION['userid'];
+    $movie_id = $_SESSION['movie_id'];
     echo $movie_id; 
     echo $rating; 
     echo $user_id;
