@@ -79,9 +79,6 @@ class Movie extends Controller {
     $rating = $_REQUEST['rating'];
     $user_id = $_SESSION['userid'];
     $movie_id = $_SESSION['movie_id'];
-    echo $movie_id; 
-    echo $rating; 
-    echo $user_id;
     $api = $this->model('Api');
     $api->rating($rating, $user_id, $movie_id);
     header('location: /movie/results');

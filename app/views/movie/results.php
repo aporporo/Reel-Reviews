@@ -164,6 +164,8 @@
         </div>
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog">
+
+              <?php if (isset($_SESSION['userid'])): ?>
             <div class="modal-content">
                 <form action="/movie/rating/" method="post">
                       <div class="modal-header">
@@ -201,7 +203,18 @@
                     
             
                 </form>
-            </div>
+    </div>
+                <?php else: ?>
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Not Logged In!</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body justify-content-center">
+                        <p>You must be <a href="/login">Logged in</a> to rate this movie!</p>
+                    </div>
+                </div>
+                    <?php endif ?>
             </div>
         </div>
         <section id="main-content">
