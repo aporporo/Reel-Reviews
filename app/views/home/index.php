@@ -10,6 +10,18 @@
       background-size: cover;
       position: relative;
     }
+
+    
+
+    .col-md-7 {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        min-height: 400px; /* Adjust this value as needed */
+    }
+    
 </style>
 
 <div class="hero-image position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-body-tertiary">
