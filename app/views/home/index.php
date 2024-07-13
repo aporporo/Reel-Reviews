@@ -21,6 +21,14 @@
         text-align: center;
         min-height: 400px; /* Adjust this value as needed */
     }
+
+    .col-md-5 {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
     
 </style>
 
@@ -47,7 +55,7 @@
         <p class="lead">Reviews are enhanced with the magic of Gemini.</p>
       </div>
       <div class="col-md-5">
-        <img src="https://miro.medium.com/v2/resize:fit:1400/1*-KkJmzvv3jNhh88TWxIBJg.png" alt="Generic placeholder image" width="400" height="400">
+        <img src="https://miro.medium.com/v2/resize:fit:1400/1*-KkJmzvv3jNhh88TWxIBJg.png" alt="Generic placeholder image" width="300" height="300">
       </div>
     </div>
 
@@ -59,7 +67,7 @@
         <p class="lead">Users can search for any movie thanks to the expansive database available at OMDb API</p>
       </div>
       <div class="col-md-5 order-md-1">
-          <img src="https://avatars.githubusercontent.com/u/30566448?v=4" width="400" height="400">
+          <img src="https://avatars.githubusercontent.com/u/30566448?v=4" width="300" height="300">
       </div>
     </div>
 
