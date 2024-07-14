@@ -46,6 +46,14 @@ class Api {
     return $rows['movie_title'];
   }
 
+  public function getThreeRandomMovies() {
+    $db = db_connect();
+    $statement = $db->prepare("SELECT * FROM movies ORDER BY RAND() LIMIT 3");
+    $statement->execute();
+    $rows = $statement->fetchAll(PDO::FETCH_ASSOC);
+    return $rows;
+  }
+
   public function getReview($movie_title) {
     $reviews_array = [];
     $random_ratings = [rand(1, 5), rand(1, 5), rand(1, 5), rand(1, 5)];

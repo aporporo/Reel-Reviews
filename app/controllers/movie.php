@@ -5,12 +5,11 @@ class Movie extends Controller {
   public function index() {
     $api = $this->model('Api');
 
-    $movie_title1 = "the matrix";
-    $movie_title2 = "star wars";
-    $movie_title3 = "alien";
-    $movie1 = $api->getMovie($movie_title1);
-    $movie2 = $api->getMovie($movie_title2);
-    $movie3 = $api->getMovie($movie_title3);
+    $movies = $api->getThreeRandomMovies();
+    
+    $movie1 = $api->getMovie($movies[0]['movie_title']);
+    $movie2 = $api->getMovie($movies[1]['movie_title']);
+    $movie3 = $api->getMovie($movies[2]['movie_title']);
     
     $data = [
       'movie1' => $movie1,
