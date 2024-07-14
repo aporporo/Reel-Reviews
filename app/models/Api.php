@@ -88,13 +88,10 @@ class Api {
       $phpObj = json_decode($response, true);
       $review = $phpObj['candidates'][0]['content']['parts'][0]['text'];
       $reviews_array[$x] = $review;
-      // $reviews_array[$x][0] = $random_ratings[$x];
+      
       
     }
     $reviews_ratings_array = [$random_ratings, $reviews_array];
-    print_r($random_ratings);
-    echo 'Write a '.$review_emotion[$random_ratings[0]].' short witty review for the movie '.$movie_title.' in the style of a letterboxd review. no *, include a few emojis, do not put the movie title at the beginning.';
-    echo $review_emotion[$random_ratings[0]];
     return $reviews_ratings_array;
   }
 

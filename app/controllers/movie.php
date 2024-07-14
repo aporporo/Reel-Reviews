@@ -27,7 +27,7 @@ class Movie extends Controller {
       
       header('location: /movie');
     }
-    
+    $user = $this->model('User');
     $user_id = $_SESSION['userid'];
     $api = $this->model('Api');
     $movie_title = $_REQUEST['search'];
@@ -43,10 +43,14 @@ class Movie extends Controller {
       $review = $api->getReview($movie_title);
       $rating = $api->getRating($user_id, $movie_id);
 
+      $usernames = $user->get_random_users();
+      echo print_r($usernames);
+
       $data = [
         'movie' => $movie,
         'rating' => $rating,
-        'review' => $review
+        'review' => $review,
+        'usernames' => $usernames
       ];
 
       $this->view('movie/results', $data);

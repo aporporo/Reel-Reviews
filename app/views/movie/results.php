@@ -287,7 +287,7 @@
             <div class="row row-cols-1 row-cols-md-3 g-4">
                 <div class="col">
                     <div class="card border-light mb-3" style="max-width: 30rem;">
-                      <div class="card-header">Header</div>
+                      <div class="card-header"><?php echo $data['usernames'][0]['username']?></div>
                       <div class="card-body">
                         <h5 class="card-title"><?php echo $data['review'][0][0] ?>/5</h5>
                         <p class="card-text"><?php echo $data['review'][1][0] ?></p>
@@ -296,7 +296,7 @@
                 </div>
                 <div class="col">
                     <div class="card border-light mb-3" style="max-width: 30rem;">
-                      <div class="card-header">Header</div>
+                      <div class="card-header"><?php echo $data['usernames'][1]['username']?></div>
                       <div class="card-body">
                         <h5 class="card-title"><?php echo $data['review'][0][1] ?>/5</h5>
                           <p class="card-text"><?php echo $data['review'][1][1] ?></p>
@@ -305,7 +305,7 @@
                 </div>
                 <div class="col">
                     <div class="card border-light mb-3" style="max-width: 30rem;">
-                      <div class="card-header">Header</div>
+                      <div class="card-header"><?php echo $data['usernames'][2]['username']?></div>
                       <div class="card-body">
                         <h5 class="card-title"><?php echo $data['review'][0][2] ?>/5</h5>
                           <p class="card-text"><?php echo $data['review'][1][2] ?></p>

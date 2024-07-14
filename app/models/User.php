@@ -112,4 +112,14 @@ class User {
     return $rows;
   }
 
+  //gets 3 random usernames not including the currently logged in user
+  public function get_random_users() {
+    $db = db_connect();
+    $statement = $db->prepare("select username from users where username != :username order by rand() limit 3");
+    $statement->bindValue(':username', $_SESSION['username']);
+    $statement->execute();
+    $rows = $statement->fetchAll(PDO::FETCH_ASSOC);
+    return $rows;
+  }
+
 }
