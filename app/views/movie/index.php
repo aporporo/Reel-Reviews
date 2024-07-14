@@ -37,11 +37,15 @@
 
     <h1 class="display-5">Just some of our movies</h1>
     
+        
     <div class="row row-cols-1 row-cols-md-3 g-4">
         
         <div class="col">
             <div class="card h-100">
-                <a href="/movie/search"><img src="<?php echo $data['movie1']['Poster'] ?>" class="card-img-top"></a>
+                <form action="/movie/search" method="post" id="search-movie">
+                    <input type="hidden" name="search" value="<?php echo $data['movie1']['Title'] ?>">
+                    <a href="#" onclick="document.getElementById('search-movie').submit();"><img src="<?php echo $data['movie1']['Poster'] ?>" class="card-img-top"></a>
+                </form>
                 <div class="card-body">
                     <h5 class="card-title"><?php echo $data['movie1']['Title'] ?></h5>
                     <p class="card-text"><?php echo $data['movie1']['Plot'] ?></p>
@@ -50,7 +54,10 @@
         </div>
       <div class="col">
         <div class="card h-100">
-            <a href="/movie/search"><img src="<?php echo $data['movie2']['Poster'] ?>" class="card-img-top"></a>
+            <form action="/movie/search" method="post" id="search-movie2">
+                <input type="hidden" name="search" value="<?php echo $data['movie2']['Title'] ?>">
+                <a href="#" onclick="document.getElementById('search-movie2').submit();"><img src="<?php echo $data['movie2']['Poster'] ?>" class="card-img-top"></a>
+            </form>
           <div class="card-body">
             <h5 class="card-title"><?php echo $data['movie2']['Title'] ?></h5>
             <p class="card-text"><?php echo $data['movie2']['Plot'] ?></p>
@@ -59,17 +66,20 @@
       </div>
       <div class="col">
         <div class="card h-100">
-            <a href="/movie/search"><img src="<?php echo $data['movie3']['Poster'] ?>" class="card-img-top"></a>
+            <form action="/movie/search" method="post" id="search-movie3">
+                <input type="hidden" name="search" value="<?php echo $data['movie3']['Title'] ?>">
+                <a href="#" onclick="document.getElementById('search-movie3').submit();"><img src="<?php echo $data['movie3']['Poster'] ?>" class="card-img-top"></a>
+            </form>
           <div class="card-body">
             <h5 class="card-title"><?php echo $data['movie3']['Title'] ?></h5>
             <p class="card-text"><?php echo $data['movie3']['Plot'] ?></p>
           </div>
         </div>
       </div>
-      
+        </form>
       </div>
     </div>
-
+        
 
 
     <?php require_once 'app/views/templates/footer.php' ?>
