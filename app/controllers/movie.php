@@ -5,12 +5,17 @@ class Movie extends Controller {
   public function index() {
     $api = $this->model('Api');
 
-    $movie_title = "the matrix";
-    $movie = $api->getMovie($movie_title);
-    $review = $api->getReview($movie_title);
+    $movie_title1 = "the matrix";
+    $movie_title2 = "star wars";
+    $movie_title3 = "alien";
+    $movie1 = $api->getMovie($movie_title1);
+    $movie2 = $api->getMovie($movie_title2);
+    $movie3 = $api->getMovie($movie_title3);
+    
     $data = [
-      'movie' => $movie,
-      'review' => $review
+      'movie1' => $movie1,
+      'movie2' => $movie2,
+      'movie3' => $movie3
     ];
     $this->view('movie/index' , $data);
   }
