@@ -81,10 +81,15 @@ class Movie extends Controller {
      // creates new rating or updates existing user specific rating, also returns the rating
     $api->rating($rating, $user_id, $movie_id);
     $rating = $api->getRating($user_id, $movie_id);
+    $review = $api->getReview($movie_title);
+    $user = $this->model('User');
+    $usernames = $user->get_random_users();
 
     $data = [
       'movie' => $movie,
-      'rating' => $rating
+      'rating' => $rating,
+      'review' => $review,
+      'usernames' => $usernames
     ];
 
     $this->view('movie/results', $data);
