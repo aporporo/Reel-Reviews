@@ -45,7 +45,7 @@
     
 
 
-    <!-- START THE FEATURETTES -->
+    
 
     <hr class="featurette-divider">
 
@@ -73,7 +73,7 @@
 
     
 
-    <!-- /END THE FEATURETTES -->
+    
 
   </div>
     
