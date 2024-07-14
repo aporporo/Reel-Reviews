@@ -26,36 +26,40 @@ class Movie extends Controller {
   }
 
   public function search() {
-    // if (!isset($_REQUEST['movie'])) {
-    //   //redirect to /movie
-    //   header('location: /');
-    // }
+    unset($_SESSION['search_error']);
+    if (!isset($_REQUEST['search']) || $_REQUEST['search'] == '') {
+      
+      header('location: /movie');
+    }
     $user_id = $_SESSION['userid'];
     $api = $this->model('Api');
 
     $movie_title = $_REQUEST['search'];
-    echo $movie_title;
+    
     $movie = $api->getMovie($movie_title);
+    if ($movie != false ) {
+      $movie_title = $movie['Title'];
+      $movie_id = $api->getMovieIdByTitle($movie_title);
+      $_SESSION['movie_id'] = $movie_id;
+      echo $movie_id;
+      // $review = $api->getReview($movie_title);
+      $rating = $api->getRating($user_id, $movie_id);
+
+      $data = [
+        'movie' => $movie,
+        'rating' => $rating
+        // 'review' => $review,
+      ];
+
+      $this->view('movie/results', $data);
+      header('location: /movie/results');
+    } else {
+      $_SESSION['search_error'] = 'Movie not found';
+      $this->index();
+    }
     // echo print_r($movie);
     
-    $movie_title = $movie['Title'];
-    $movie_id = $api->getMovieIdByTitle($movie_title);
-    $_SESSION['movie_id'] = $movie_id;
-    echo $movie_id;
-    // $review = $api->getReview($movie_title);
-    $rating = $api->getRating($user_id, $movie_id);
     
-
-    $data = [
-      'movie' => $movie,
-      // 'review' => $review,
-     
-    ];
-
-    
-
-    $this->view('movie/results', $data);
-    header('location: /movie/results');
   }
 
   public function searchByTitle($movie_title) {
@@ -84,9 +88,24 @@ class Movie extends Controller {
     $rating = $_REQUEST['rating'];
     $user_id = $_SESSION['userid'];
     $movie_id = $_SESSION['movie_id'];
+    
     $api = $this->model('Api');
+    $movie_title = $api->getMovieById($movie_id);
+    $movie = $api->getMovie($movie_title);
+    
     $api->rating($rating, $user_id, $movie_id);
+    $rating = $api->getRating($user_id, $movie_id);
+
+    $data = [
+      'movie' => $movie,
+      'rating' => $rating
+    ];
+
+    $this->view('movie/results', $data);
     header('location: /movie/results');
+    
+    
+    // header('location: /movie/results');
   } 
 
   

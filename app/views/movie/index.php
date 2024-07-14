@@ -21,8 +21,25 @@
     .featurette {
         padding: 1rem 0;
     }
+
+    .alert {
+        position: absolute;
+        right: 0;
+        top: 0;
+        margin-top: 5rem;
+        margin-right: 1rem;
+    }
 </style>
 <div class="container">
+    <?php if (isset($_SESSION['search_error'])): ?>
+    <div class="d-flex justify-content-end">
+    <div class="alert alert-warning alert-dismissible fade show d-inline-block" role="alert">
+      <strong>Couldn't find your movie!</strong> Please try again.
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    </div>
+    <?php endif; ?>
+
     <div class="row featurette">
       <div class="col-md-7">
         <h2 class="featurette-heading fw-normal lh-1">Check out some movies. <span class="text-body-secondary">Rate and review!</span></h2>

@@ -15,7 +15,7 @@ class Api {
       $movie =  (array) $phpObj;
       $movie_title = $movie['Title'];
       if ($movie['Response'] == 'False') {
-        return $movie;
+        return false;
       } else {
         $db = db_connect();
         $statement = $db->prepare("SELECT * FROM movies WHERE movie_title = '$movie_title'");
@@ -36,6 +36,14 @@ class Api {
     $statement->execute();
     $rows = $statement->fetch(PDO::FETCH_ASSOC);
     return $rows['id'];
+  }
+
+  public function getMovieById($movie_id) {
+    $db = db_connect();
+    $statement = $db->prepare("SELECT * FROM movies WHERE id = '$movie_id'");
+    $statement->execute();
+    $rows = $statement->fetch(PDO::FETCH_ASSOC);
+    return $rows['movie_title'];
   }
 
   public function getReview($movie_title) {
@@ -102,6 +110,7 @@ class Api {
     if (!isset($rows['user_id'])) {
       $statement = $db->prepare("INSERT INTO ratings (user_id, movie_id, rating) VALUES ('$user_id', '$movie_id', '$rating')");
       $statement->execute();
+      
       
     } else {
       $statement = $db->prepare("UPDATE ratings SET rating = '$rating' WHERE user_id = '$user_id' AND movie_id = '$movie_id'");
