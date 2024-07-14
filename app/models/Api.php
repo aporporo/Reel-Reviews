@@ -56,9 +56,9 @@ class Api {
 
   public function getReview($movie_title) {
     $reviews_array = [];
-    $random_ratings = [rand(1, 5), rand(1, 5), rand(1, 5), rand(1, 5)];
+    $random_ratings = [rand(1, 5), rand(1, 5), rand(1, 5)];
     $review_emotion = ['terrible', 'bad', 'average', 'good', 'great'];
-    for ($x = 0; $x < 4; $x++) {
+    for ($x = 0; $x < 3; $x++) {
       $url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=".$_ENV['GEMINI'];
   
       $data = array(

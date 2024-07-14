@@ -284,7 +284,7 @@
         </section>
         <section id="review-content">
             <h1 class="display-6">Reviews</h1>
-            <div class="row row-cols-1 row-cols-md-2 g-4">
+            <div class="row row-cols-1 row-cols-md-3 g-4">
                 <div class="col">
                     <div class="card border-light mb-3" style="max-width: 30rem;">
                       <div class="card-header">Header</div>
@@ -312,15 +312,7 @@
                       </div>
                     </div>
                 </div>
-                <div class="col">
-                    <div class="card border-light mb-3" style="max-width: 30rem;">
-                      <div class="card-header">Header</div>
-                      <div class="card-body">
-                        <h5 class="card-title"><?php echo $data['review'][0][3] ?>/5</h5>
-                          <p class="card-text"><?php echo $data['review'][1][3] ?></p>
-                      </div>
-                    </div>
-                </div>
+                
             </div>
         </section>
             
