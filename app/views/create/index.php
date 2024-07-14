@@ -2,7 +2,7 @@
 <main role="main" class="container-fluid">
     <div class="row">
         <div class="col-sm-5 px-0">
-            <img src="https://images-assets.nasa.gov/image/a-sky-view-of-earth-from-suomi-npp_16611703184_o/a-sky-view-of-earth-from-suomi-npp_16611703184_o~medium.jpg" class="w-100 vh-100" style="object-fit: cover; object-position: center;">
+            <img src="https://images.unsplash.com/photo-1604975701397-6365ccbd028a?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGNpbmVtYXxlbnwwfHwwfHx8MA%3D%3D" class="w-100 vh-100" style="object-fit: cover; object-position: center;">
         </div>
     <div class="col-sm-7 d-flex justify-content-center">
         

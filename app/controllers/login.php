@@ -2,7 +2,10 @@
 
 class Login extends Controller {
 
-    public function index() {		
+    public function index() {
+			if (isset($_SESSION['userid'])) {
+					header('location: /');
+			}
 	    $this->view('login/index');
     }
     

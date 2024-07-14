@@ -44,7 +44,7 @@ class Movie extends Controller {
       $rating = $api->getRating($user_id, $movie_id);
 
       $usernames = $user->get_random_users();
-      echo print_r($usernames);
+      
 
       $data = [
         'movie' => $movie,

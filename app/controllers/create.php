@@ -3,6 +3,9 @@
 class Create extends Controller {
 
     public function index() {		
+      if (isset($_SESSION['userid'])) {
+          header('location: /');
+      }
 	    $this->view('create/index');
     }
 

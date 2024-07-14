@@ -53,6 +53,9 @@
 		</div>
 	</section>
 			</div>
+		<div class="col-sm-5 px-0">
+				<img src="https://images.unsplash.com/photo-1692986527123-0934f9cf9e81?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjd8fGNpbmVtYXxlbnwwfHwwfHx8MA%3D%3D" class="w-100 vh-100" style="object-fit: cover; object-position: center;">
+		</div>
 		
 	</div>
 	
