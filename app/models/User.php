@@ -115,9 +115,11 @@ class User {
   //gets 3 random usernames not including the currently logged in user
   public function get_random_users() {
     $db = db_connect();
+    //if logged in, exclude from random selection
     if (isset($_SESSION['username'])) {
       $statement = $db->prepare("select username from users where username != :username order by rand() limit 3");
       $statement->bindValue(':username', $_SESSION['username']);
+      //else use any random 3
     } else {
       $statement = $db->prepare("select username from users order by rand() limit 3");
     }
