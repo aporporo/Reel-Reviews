@@ -33,7 +33,7 @@
 <div class="container">
     <?php if (isset($_SESSION['search_error'])): ?>
     <div class="d-flex justify-content-end">
-    <div class="alert alert-warning alert-dismissible fade show d-inline-block" role="alert">
+    <div class="alert alert-danger alert-dismissible fade show d-inline-block" role="alert">
       <strong>Couldn't find your movie!</strong> Please try again.
       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
