@@ -13,7 +13,12 @@ The requirements for this project were to utilize the OMDb API and the Google Ge
 * Bootstrap
 * MariaDB
 
+## View of the movie info pulled from OMDb
 ![COSC4806-Project-Movie-View](https://github.com/user-attachments/assets/e1a925d6-7b58-4317-8eee-522f53c75331)
+
+## View of the AI generated reviews from Gemini API
+![COSC4806-Project-AI-Reviews](https://github.com/user-attachments/assets/7ed9fad0-9f1c-4e15-a2af-8c5668d44e37)
+
 
 
 
