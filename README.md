@@ -1,4 +1,4 @@
-# Film Review Web Data Application for COSC4806
+# Reel Reviews. A Film Review Web Data Application.
 
 This project allows the user to search for any movie, be presented with all the relevant information for that movie, and be presented with reviews!
 
